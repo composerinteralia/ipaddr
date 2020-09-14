@@ -587,6 +587,7 @@ class IPAddr
       when Socket::AF_INET, Socket::AF_INET6
         set(addr.to_i, family)
         @mask_addr = (family == Socket::AF_INET) ? IN4MASK : IN6MASK
+        @unmasked_addr = @addr
         return
       when Socket::AF_UNSPEC
         raise AddressFamilyError, "address family must be specified"

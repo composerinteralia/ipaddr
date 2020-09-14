@@ -428,5 +428,6 @@ class TC_Operator < Test::Unit::TestCase
     assert_equal("1.2.3.4", IPAddr.new("1.2.3.4/8").to_unmasked_string)
     assert_equal("0001:0002:0000:0000:0000:0000:0000:0003", IPAddr.new("1:2::3").to_unmasked_string)
     assert_equal("0001:0002:0000:0000:0000:0000:0000:0003", IPAddr.new("1:2::3/16").to_unmasked_string)
+    assert_equal("1.2.3.4", IPAddr.new(IPAddr.new("1.2.3.4").to_i, Socket::AF_INET).to_unmasked_string)
   end
 end
